@@ -4,9 +4,38 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Update</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Link to external CSS file -->
   </head>
   <body>
+    <h1>Weather Update</h1>
+    <!-- Weather search form -->
+    <form id="weatherForm">
+      <div class="search-container">
+        <input
+          type="text"
+          id="cityInput"
+          placeholder="Enter city name"
+          required
+          autocomplete="off"
+        />
+        <!-- Suggestions dropdown for city names -->
+        <div id="suggestions" class="suggestions-container"></div>
+      </div>
+      <button type="submit">Get Weather</button>
+    </form>
+    <!-- Weather information card -->
+    <div id="card">
+      <h2 class="cityName"></h2>
+      <p class="temperature"></p>
+      <p class="description"></p>
+      <p class="weatherEmoji"></p>
+      <p class="feels-like"></p>
+      <p class="humidity"></p>
+      <p class="wind"></p>
+      <p class="country"></p>
+      <p class="error" style="display: none"></p>
+    </div>
     <script src="index.js"></script>
   </body>
 </html>
