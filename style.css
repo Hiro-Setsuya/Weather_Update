@@ -1,4 +1,8 @@
+/* ===========================
+    CSS Variables & Base Styles
+    =========================== */
 :root {
+  /* Color palette */
   --primary-green: #34d399;
   --dark-green: #10b981;
   --light-green: #d1fae5;
@@ -6,15 +10,20 @@
   --light-gray: #f9fafb;
   --dark-gray: #374151;
   --text-color: #1f2937;
+
+  /* UI constants */
   --border-radius: 12px;
   --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Layout widths */
   --container-width: 90%;
   --max-container-width: 28rem;
   --form-max-width: 40rem;
 }
 
+/* Reset and base font styles */
 * {
   margin: 0;
   padding: 0;
@@ -23,6 +32,9 @@
   font-family: "Press Start 2P", "Courier New", monospace;
 }
 
+/* ===========================
+    Body & Layout
+    =========================== */
 body {
   background: url("images/bg.jpg") center/cover no-repeat fixed;
   min-height: 100vh;
@@ -36,6 +48,7 @@ body {
   text-rendering: optimizeSpeed;
 }
 
+/* Pixelated border effect */
 .pixel-border {
   border: 2px solid;
   border-image: repeating-linear-gradient(
@@ -48,12 +61,16 @@ body {
     2;
 }
 
+/* Main container */
 .container {
   width: var(--container-width);
   max-width: var(--max-container-width);
   margin: 0 auto;
 }
 
+/* ===========================
+    Headings
+    =========================== */
 h1 {
   font-size: clamp(1.5rem, 5vw, 2.5rem);
   margin: 1rem 0 1.5rem;
@@ -65,6 +82,7 @@ h1 {
   text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
 }
 
+/* Decorative underline for h1 */
 h1::after {
   content: "";
   position: absolute;
@@ -76,6 +94,9 @@ h1::after {
   background: linear-gradient(90deg, var(--primary-green), var(--dark-green));
 }
 
+/* ===========================
+    Form Styles
+    =========================== */
 #weatherForm {
   display: flex;
   flex-direction: column;
@@ -87,11 +108,13 @@ h1::after {
   margin-right: auto;
 }
 
+/* Search input container */
 .search-container {
   flex-grow: 1;
   position: relative;
 }
 
+/* City input field */
 #cityInput {
   width: 100%;
   max-width: 100%; /* Ensures it doesn't overflow form */
@@ -99,12 +122,14 @@ h1::after {
   font-size: clamp(0.8rem, 2vw, 1rem); /* Scales with viewport */
 }
 
+/* Input focus effect */
 #cityInput:focus {
   outline: none;
   border-color: var(--primary-green);
   box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.2);
 }
 
+/* Submit button styles */
 button[type="submit"] {
   background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
   color: var(--white);
@@ -124,14 +149,17 @@ button[type="submit"] {
   gap: 0.5rem;
 }
 
+/* Button hover and active effects */
 button[type="submit"]:hover {
   transform: translate(-1px, -1px);
 }
-
 button[type="submit"]:active {
   transform: translate(1px, 1px);
 }
 
+/* ===========================
+    Weather Card Styles
+    =========================== */
 #card {
   background: var(--white);
   box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
@@ -144,6 +172,7 @@ button[type="submit"]:active {
   animation: cardEntrance 0.4s ease-out forwards;
 }
 
+/* City name in card */
 .cityName {
   color: var(--dark-green);
   font-size: 1.5rem;
@@ -151,6 +180,7 @@ button[type="submit"]:active {
   margin-bottom: 0.25rem;
 }
 
+/* Temperature display */
 .temperature {
   font-size: 2.5rem;
   font-weight: 700;
@@ -161,6 +191,7 @@ button[type="submit"]:active {
   font-family: "Press Start 2P", cursive;
 }
 
+/* Weather description */
 .description {
   font-size: 1.125rem;
   color: #6b7280;
@@ -169,11 +200,13 @@ button[type="submit"]:active {
   font-weight: 500;
 }
 
+/* Weather icon */
 .weather-icon {
   width: 100px;
   height: 100px;
 }
 
+/* Weather details grid */
 .weather-details {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -181,6 +214,7 @@ button[type="submit"]:active {
   margin-top: 1rem;
 }
 
+/* Individual weather detail */
 .weather-detail {
   background: var(--light-green);
   padding: 0.5rem;
@@ -188,6 +222,7 @@ button[type="submit"]:active {
   border: 2px solid var(--dark-green);
 }
 
+/* Weather detail label */
 .weather-detail span {
   display: block;
   font-weight: 600;
@@ -195,6 +230,9 @@ button[type="submit"]:active {
   margin-bottom: 0.25rem;
 }
 
+/* ===========================
+    Error & Loading States
+    =========================== */
 .error {
   color: #dc2626;
   background: #fee2e2;
@@ -217,6 +255,7 @@ button[type="submit"]:active {
   gap: 0.75rem;
 }
 
+/* Loading spinner */
 .loading::after {
   content: "";
   display: inline-block;
@@ -228,6 +267,9 @@ button[type="submit"]:active {
   animation: spin 1s linear infinite;
 }
 
+/* ===========================
+    Suggestions Dropdown
+    =========================== */
 .suggestions-container {
   position: absolute;
   top: 100%;
@@ -268,6 +310,9 @@ button[type="submit"]:active {
   opacity: 0.8;
 }
 
+/* ===========================
+    Animations
+    =========================== */
 @keyframes pulse {
   0%,
   100% {
@@ -295,6 +340,9 @@ button[type="submit"]:active {
   }
 }
 
+/* ===========================
+    Responsive Design
+    =========================== */
 @media (min-width: 640px) {
   :root {
     --container-width: 80%;
