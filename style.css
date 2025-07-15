@@ -82,18 +82,6 @@ h1 {
   text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
 }
 
-/* Decorative underline for h1 */
-h1::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 4rem;
-  height: 4px;
-  background: linear-gradient(90deg, var(--primary-green), var(--dark-green));
-}
-
 /* ===========================
     Form Styles
     =========================== */
